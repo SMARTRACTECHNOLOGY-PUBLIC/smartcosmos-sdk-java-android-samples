@@ -3,7 +3,7 @@ Code samples for SMART COSMOS SDK Java for Android
 
 ## Profiles Product Authentication
 
-This example deomnstrates how to authenticate a NTAG encoded for
+This example demonstrates how to authenticate a NTAG encoded for
 Profiles Product Authentication.
 
 ### Requirements
