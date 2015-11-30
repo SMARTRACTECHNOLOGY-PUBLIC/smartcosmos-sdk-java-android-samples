@@ -1,7 +1,7 @@
 ![SMART COSMOS](https://s3-eu-west-1.amazonaws.com/api.smart-cosmos.com/images/smartcosmos.png)
 
 # Code samples for SMART COSMOS SDK Java for Android
-This GitHub repo contains code samples for the [SMART COSMOS SDK Java for Android](https://github.com/SMARTRACTECHNOLOGY-PUBLIC/smartcosmos-sdk-java-android).
+This repository contains code samples for the [SMART COSMOS SDK Java for Android](https://github.com/SMARTRACTECHNOLOGY-PUBLIC/smartcosmos-sdk-java-android).
 
 ## Profiles Product Authentication
 
@@ -14,7 +14,14 @@ Profiles Product Authentication.
  - Internet connection
  - A SMART COSMOS Profiles account
  - NTAG tags with SMART COSMOS Profiles encoding
+
+### Useful links
+
+ - [SMART COSMOS API Documentation](https://api.smartcosmos.net)
+ - [SMART COSMOS Profiles in the Partner Development Portal](http://partner.smart-cosmos.com/site/global/platform/embed_profiles/index.gsp)
+- [SMART COSMOS Lessons](http://lessons.smart-cosmos.com)
  
+
 ## Join SMART COSMOS
 Are you ready to become part of creating something really big? With SMART COSMOS
 you can connect a universe of everyday things to the digital world. In fact,
