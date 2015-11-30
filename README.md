@@ -19,7 +19,7 @@ Profiles Product Authentication.
 
  - [SMART COSMOS API Documentation](https://api.smartcosmos.net)
  - [SMART COSMOS Profiles in the Partner Development Portal](http://partner.smart-cosmos.com/site/global/platform/embed_profiles/index.gsp)
-- [SMART COSMOS Lessons](http://lessons.smart-cosmos.com)
+ - [SMART COSMOS Lessons](http://lessons.smart-cosmos.com)
  
 
 ## Join SMART COSMOS
