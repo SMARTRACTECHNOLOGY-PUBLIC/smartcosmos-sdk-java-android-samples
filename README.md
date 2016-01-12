@@ -8,6 +8,12 @@ This repository contains code samples for the [SMART COSMOS SDK Java for Android
 This example demonstrates how to authenticate a NTAG encoded for
 Profiles Product Authentication.
 
+### Released binary
+
+Get the latest release from Google Play:
+
+[![](https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png)](https://play.google.com/store/apps/details?id=com.smartrac.profiles.productauth)
+
 ### Requirements
 
  - Android device with NFC enabled
