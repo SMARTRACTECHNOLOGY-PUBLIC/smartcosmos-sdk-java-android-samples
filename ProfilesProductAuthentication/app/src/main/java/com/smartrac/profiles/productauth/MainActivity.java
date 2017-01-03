@@ -35,6 +35,8 @@ import android.nfc.tech.NfcV;
 
 import com.smartrac.nfc.NfcNtag;
 import com.smartrac.nfc.NfcNtagVersion;
+
+import net.smartcosmos.android.ProfilesBulkImportRequest;
 import net.smartcosmos.android.utility.AsciiHexConverter;
 import net.smartcosmos.android.utility.IntentLauncher;
 import net.smartcosmos.android.utility.Secure;
@@ -1142,9 +1144,12 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				sResult[1] = "";
 
 				ProfilesRestClient client= new ProfilesRestClient(server, user, password);
-				String account = client.getAccount();
+                ProfilesBulkImportRequest req = new ProfilesBulkImportRequest();
+                ProfilesRestResult result = client.importProfilesData(req);
+
+				/*String account = client.getAccount();
 				ProfilesTransactionRequest req = new ProfilesTransactionRequest(account);
-				ProfilesRestResult result = client.importProfilesData(req);
+				ProfilesRestResult result = client.importProfilesData(req); */
 				switch (result.httpStatus) {
 					case 200:
 						if (result.iCode == 1)
@@ -1220,7 +1225,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				sResult[1] = "";
 				
 				ProfilesRestClient client = new ProfilesRestClient(server, user, password);
-				String account = client.getAccount();
+				//String account = client.getAccount();
 				
 				ntag.connect();
 				
@@ -1262,11 +1267,16 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				{
 					throw new Exception("NFC: Error reading CONFIG - tag is already encoded.");
 				}
+				//*/
 				
 				// Generate OTP data
 				hmac = Secure.getRandomBytes(72);
 				pwd = Secure.getRandomBytes(4);
 				pack = Secure.getRandomBytes(2);
+
+				Log.d(TAG, "Encode HMAC: " + AsciiHexConverter.bytesToHex(hmac));
+				Log.d(TAG, "Encode PWD: " + AsciiHexConverter.bytesToHex(pwd));
+				Log.d(TAG, "Encode PACK: " + AsciiHexConverter.bytesToHex(pack));
 				 
 				// Write HMAC
 				for (int i=0; i<18; i++) {
@@ -1294,6 +1304,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				 
 				// Store NTAG data in Profiles
 				String batchId = "MyProfilesBatch";
+				/*
 				ProfilesTransactionRequest transaction = new ProfilesTransactionRequest(account);
 				transaction.addBatch(batchId);
 				transaction.addTag(batchId, uid);
@@ -1305,8 +1316,20 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				result = client.importProfilesData(transaction);
 				if ((result.httpStatus != 200) || (result.iCode != 1)) {
 					throw new Exception(result.sMessage);
-				}
-				
+				} */
+                ProfilesBulkImportRequest importRequest = new ProfilesBulkImportRequest();
+                importRequest.addBatch(batchId);
+                importRequest.addTag(batchId, uid);
+                Map<String, Object>tagdata = new HashMap<String, Object>();
+                tagdata.put("tag:hmac:auth", AsciiHexConverter.bytesToHex(hmac));
+                tagdata.put("tag:hmac:key", AsciiHexConverter.bytesToHex(pwd));
+                tagdata.put("tag:pack:value", AsciiHexConverter.bytesToHex(pack));
+                importRequest.addTagData(uid, tagdata);
+                    result = client.importProfilesData(importRequest);
+                if ((result.httpStatus != 200) || (result.iCode != 1)) {
+                    throw new Exception(result.sMessage);
+                }
+
 				ntag.close();				
 				sResult[0] = "Encode tag complete.";
 				sResult[1] = "The tag can now be authenticated in Profiles.";
