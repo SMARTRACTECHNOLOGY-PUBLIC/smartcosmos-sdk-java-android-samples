@@ -1,4 +1,4 @@
-![SMART COSMOS](https://s3-eu-west-1.amazonaws.com/api.smart-cosmos.com/images/smartcosmos.png)
+![SMART COSMOS](https://github.com/SMARTRACTECHNOLOGY-PUBLIC/smartcosmos-sdk-java-android/blob/master/images/sclogo2016.png)
 
 # Code samples for SMART COSMOS SDK Java for Android
 This repository contains code samples for the [SMART COSMOS SDK Java for Android](https://github.com/SMARTRACTECHNOLOGY-PUBLIC/smartcosmos-sdk-java-android).
