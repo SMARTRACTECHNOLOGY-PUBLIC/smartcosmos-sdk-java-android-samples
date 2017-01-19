@@ -4,7 +4,7 @@ node {
 
   stage("build") {
     docker.image("smartcosmos/android-build:2").inside {
-        sh "gradle clean build"
+        sh "./gradlew clean build"
     }
   }
 }
